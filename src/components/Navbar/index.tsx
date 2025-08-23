@@ -11,6 +11,22 @@ const NavbarContainer = styled.nav`
   flex-direction: column;
   align-self: flex-start;
   padding-left: 3rem;
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  scrollbar-width: none;
+  will-change: transform;
+  transform: translateZ(0);
 `;
 
 const NavSection = styled.div`

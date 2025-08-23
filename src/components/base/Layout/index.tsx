@@ -5,7 +5,7 @@ import Navbar from "../../Navbar";
 const LayoutContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 75px;
   padding-bottom: 50px;
 `;
 
@@ -14,6 +14,9 @@ const ContentWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   background-color: #ffffff;
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
 `;
 
 const MainContent = styled.main`

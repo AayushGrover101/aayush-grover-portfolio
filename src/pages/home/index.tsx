@@ -71,6 +71,13 @@ const BottomText = styled.p`
   margin-top: 2rem;
 `;
 
+const LastUpdated = styled.p`
+  font-size: 0.8rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-top: 1rem;
+`;
+
 const Home: React.FC = () => {
   return (
     <HomeContainer>
@@ -91,12 +98,12 @@ const Home: React.FC = () => {
             <Link href="https://shopify.com" target="_blank" rel="noopener noreferrer">
               Shopify
             </Link>
-            , working on Sidekick
+            , working on Sidekick.
           </ListItem>
           <ListItem>
             Previously, I worked on quantitative benchmarks & evaluations (agent frameworks, embedding models, etc.) at{" "}
             <Link href="https://nokia.com" target="_blank" rel="noopener noreferrer">
-              Nokia
+              Nokia.
             </Link>
           </ListItem>
           <ListItem>
@@ -104,7 +111,25 @@ const Home: React.FC = () => {
             <Link href="https://hackthenorth.com" target="_blank" rel="noopener noreferrer">
               Hack the North
             </Link>
-            , Canada's largest hackathon
+            , Canada's largest hackathon.
+          </ListItem>
+        </List>
+      </Section>
+
+      <Section>
+        <SectionTitle>Things that interest me:</SectionTitle>
+        <List>
+          <ListItem>
+            Building beautiful products and experiences. Impact is all about scale, and scaling consumer products requires killer user experience.
+          </ListItem>
+          <ListItem>
+            ML research. While building products gives me the “thrill” of a quick win, I find the pursuit of deeper knowledge most rewarding.
+          </ListItem>
+          <ListItem>
+            Connecting with strangers. I’m in a constant endeavor to find my people, so I live by “strangers today, friends tomorrow”.
+          </ListItem>
+          <ListItem>
+            Art is at the heart of everything I do. From design to theater to jazz – if I’m not creating, I’m getting lost in someone else’s work.
           </ListItem>
         </List>
       </Section>
@@ -124,9 +149,6 @@ const Home: React.FC = () => {
           <ListItem>
             I hold my values close, but I'm always open to rethinking my opinions. Make a strong case and I'll leave behind old assumptions.
           </ListItem>
-          <ListItem>
-            Art is at the heart of everything I do, from music to theater to design - if I'm not creating, I'm getting lost in someone else's work
-          </ListItem>
         </List>
       </Section>
 
@@ -136,6 +158,10 @@ const Home: React.FC = () => {
         <Link href="/writing">writing</Link>, and{" "}
         <Link href="/ml-archives">ML archives</Link>.
       </BottomText>
+
+      <LastUpdated>
+        Last updated: August 23rd, 2025.
+      </LastUpdated>
     </HomeContainer>
   );
 };
