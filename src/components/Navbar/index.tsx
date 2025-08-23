@@ -3,63 +3,57 @@ import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { PAGES } from "./constants";
 import { SOCIALS, SocialPlatforms } from "src/constants/social";
+import { theme } from "src/styles";
 
 const NavbarContainer = styled.nav`
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #ffffff;
-  border-right: 1px solid #e5e5e5;
-  padding: 2rem 1.5rem;
+  min-width: 175px;
   display: flex;
   flex-direction: column;
-  z-index: 1000;
+  align-self: flex-start;
+  padding-left: 3rem;
 `;
 
 const NavSection = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const NavTitle = styled.h3`
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #666;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-bottom: 0rem;
 `;
 
 const NavLink = styled(Link)<{ $isActive?: boolean }>`
   display: block;
-  padding: 0.5rem 0;
-  color: ${props => props.$isActive ? "#000" : "#666"};
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #000;
   text-decoration: none;
-  font-weight: ${props => props.$isActive ? "600" : "400"};
-  transition: color 0.2s ease;
+  font-weight: 400;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  background-color: ${props => props.$isActive ? theme.colors.primary.lightGray : "transparent"};
   
   &:hover {
-    color: #000;
+    background-color: ${props => props.$isActive ? theme.colors.primary.lightGray : theme.colors.primary.lightGray};
   }
 `;
 
 const Divider = styled.hr`
   border: none;
-  border-top: 1px solid #e5e5e5;
-  margin: 1.5rem 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 `;
 
 const SocialLink = styled.a`
   display: block;
-  padding: 0.5rem 0;
-  color: #666;
+  padding: 0.5rem 0.75rem;
+  color: #000;
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.2s ease;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+  transition: background-color 0.2s ease;
   
   &:hover {
-    color: #000;
+    background-color: ${theme.colors.primary.lightGray};
   }
 `;
 
@@ -76,7 +70,6 @@ const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <NavSection>
-        <NavTitle>Navigation</NavTitle>
         {Object.entries(PAGES).map(([pageId, pageName]) => (
           <NavLink 
             key={pageId}
@@ -91,7 +84,6 @@ const Navbar: React.FC = () => {
       <Divider />
 
       <NavSection>
-        <NavTitle>Social</NavTitle>
         <SocialLink href={SOCIALS[SocialPlatforms.X].link} target="_blank" rel="noopener noreferrer">
           Twitter
         </SocialLink>

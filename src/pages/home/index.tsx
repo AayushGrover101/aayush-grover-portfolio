@@ -1,21 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "src/components/base/Link";
 
 const HomeContainer = styled.div`
-  max-width: 800px;
+  max-width: 600px;
+  line-height: 1.6;
 `;
 
 const Name = styled.h1`
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
   color: #000;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.25rem;
-  color: #666;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-weight: 400;
 `;
 
 const Section = styled.section`
@@ -23,37 +29,46 @@ const Section = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: #000;
+  margin-bottom: 0.75rem;
+  color: #111827;
+  line-height: 1.4;
 `;
 
 const List = styled.ul`
   list-style: none;
   padding: 0;
+  margin: 0;
 `;
 
 const ListItem = styled.li`
-  margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
   position: relative;
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.4;
   
   &:before {
     content: "•";
     position: absolute;
     left: 0;
-    color: #666;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
 
-const Link = styled.a`
-  color: #0088FF;
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
+const BottomText = styled.p`
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-top: 2rem;
 `;
 
 const Home: React.FC = () => {
@@ -65,6 +80,7 @@ const Home: React.FC = () => {
         <Link href="https://uwaterloo.ca" target="_blank" rel="noopener noreferrer">
           University of Waterloo
         </Link>
+        .
       </Subtitle>
 
       <Section>
@@ -109,17 +125,17 @@ const Home: React.FC = () => {
             I hold my values close, but I'm always open to rethinking my opinions. Make a strong case and I'll leave behind old assumptions.
           </ListItem>
           <ListItem>
-            Art is at the heart of everything I do, from music to theater to design - if I'm not creating, I'm getting lost in someone else's work.
+            Art is at the heart of everything I do, from music to theater to design - if I'm not creating, I'm getting lost in someone else's work
           </ListItem>
         </List>
       </Section>
 
-      <p>
+      <BottomText>
         Feel free to check out some of my{" "}
         <Link href="/projects">projects</Link>,{" "}
         <Link href="/writing">writing</Link>, and{" "}
         <Link href="/ml-archives">ML archives</Link>.
-      </p>
+      </BottomText>
     </HomeContainer>
   );
 };

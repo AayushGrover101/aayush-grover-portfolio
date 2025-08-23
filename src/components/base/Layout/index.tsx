@@ -4,14 +4,22 @@ import Navbar from "../../Navbar";
 
 const LayoutContainer = styled.div`
   display: flex;
-  min-height: 100vh;
+  justify-content: center;
+  margin-top: 80px;
+  padding-bottom: 50px;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #ffffff;
 `;
 
 const MainContent = styled.main`
-  flex: 1;
-  margin-left: 350px;
-  padding: 2rem;
-  background-color: #ffffff;
+  padding-left: 3rem;
+  align-self: flex-start;
+  padding-top: 0;
 `;
 
 interface LayoutProps {
@@ -21,10 +29,12 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <LayoutContainer>
-      <Navbar />
-      <MainContent>
-        {children}
-      </MainContent>
+      <ContentWrapper>
+        <Navbar />
+        <MainContent>
+          {children}
+        </MainContent>
+      </ContentWrapper>
     </LayoutContainer>
   );
 };
