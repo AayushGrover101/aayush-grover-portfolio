@@ -1,4 +1,4 @@
-export const Route = {
-    MAIN: "/",
-    NOT_FOUND: "404",
-} as const;
+export enum Route { 
+  MAIN = "/", 
+  NOT_FOUND = "404" 
+};
