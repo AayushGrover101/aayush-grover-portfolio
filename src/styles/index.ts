@@ -8,6 +8,8 @@ declare module "styled-components" {
         blue: string;
         lightBlue: string;
         lightGray: string;
+        gray: string;
+        mediumGray: string;
       };
       secondary: Record<string, never>;
       shadow: Record<string, never>;
@@ -28,6 +30,8 @@ export const theme: DefaultTheme = {
       blue: "#0088FF",
       lightBlue: "#0088FF",
       lightGray: "#F5F5F5",
+      gray: "#7A7A7A",
+      mediumGray: "#E8E8E8",
     },
     secondary: {},
     shadow: {},

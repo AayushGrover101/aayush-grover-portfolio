@@ -5,13 +5,14 @@ import Navbar from "../../Navbar";
 const LayoutContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 75px;
-  padding-bottom: 50px;
+  margin-top: 4.75rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
-  max-width: 1200px;
+  max-width: 79rem;
   width: 100%;
   background-color: #ffffff;
   position: relative;
