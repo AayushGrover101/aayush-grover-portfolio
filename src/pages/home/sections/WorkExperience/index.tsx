@@ -47,6 +47,12 @@ const ExperienceContainer = styled.div`
 const ExperienceLogo = styled.img`
   width: 3.1rem;
   height: 3.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const ExperienceTextContainer = styled.div`

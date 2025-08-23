@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { 
   RecordBase, 
@@ -18,6 +18,7 @@ import {
   Laufey4Cover,
   WickedCover
 } from "../../../../assets/img";
+import { useVinyl } from "../../../../contexts/VinylContext";
 
 const RecordLibraryContainer = styled.div`
   position: relative;
@@ -99,44 +100,8 @@ const GridCellWithHover = styled(GridCell)`
   }
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-  justify-content: center;
-`;
 
-const Button = styled.button`
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-  }
-`;
-
-const StartButton = styled(Button)`
-  background-color: #4CAF50;
-  color: white;
-
-  &:hover {
-    background-color: #45a049;
-  }
-`;
-
-const StopButton = styled(Button)`
-  background-color: #f44336;
-  color: white;
-
-  &:hover {
-    background-color: #da190b;
-  }
-`;
 
 const Heading = styled.h1`
   font-size: 1.6rem;
@@ -150,14 +115,14 @@ const Subheading = styled.h1`
 `;
 
 const RecordLibrary: React.FC = () => {
-  const [isRotating, setIsRotating] = useState(false);
+  const { isRotating, selectedRecord, setVinylState } = useVinyl();
 
-  const handleStart = () => {
-    setIsRotating(true);
+  const handleRecordClick = (recordSrc: string) => {
+    setVinylState(true, recordSrc);
   };
 
-  const handleStop = () => {
-    setIsRotating(false);
+  const getCurrentRecordSrc = () => {
+    return selectedRecord || RecordBase;
   };
 
   return (
@@ -168,48 +133,67 @@ const RecordLibrary: React.FC = () => {
       <RecordLibraryContainer>
         {/* Record Player in top right */}
         <RecordPlayerSection>
-          <RecordImage src={RecordBase} alt="Record Base" zIndex={1} isRotating={isRotating} />
+          <RecordImage src={getCurrentRecordSrc()} alt="Record Base" zIndex={1} isRotating={isRotating} />
           <RecordImage src={RecordNeedle} alt="Record Needle" zIndex={2} style={{border: "2px solid black" }} />
         </RecordPlayerSection>
 
-        {/* Left column - 3 records */}
         <GridCellWithHover gridColumn={1} gridRow={1}>
-          <GridRecord src={BillieCover} alt="Billie Eilish Cover" />
+          <GridRecord 
+            src={BillieCover} 
+            alt="Billie Eilish Cover" 
+            onClick={() => handleRecordClick(RecordBillie)}
+          />
           <RecordOverlay src={RecordBillie} alt="Billie Eilish Record" />
         </GridCellWithHover>
         <GridCellWithHover gridColumn={1} gridRow={2}>
-          <GridRecord src={ChuckCover} alt="Chuck Berry Cover" />
-          <RecordOverlay src={RecordChuck} alt="Chuck Berry Record" />
-        </GridCellWithHover>
-        <GridCellWithHover gridColumn={1} gridRow={3}>
-          <GridRecord src={Laufey1Cover} alt="Laufey Cover 1" />
+          <GridRecord 
+            src={Laufey1Cover} 
+            alt="Laufey Cover 1" 
+            onClick={() => handleRecordClick(RecordLaufey1)}
+          />
           <RecordOverlay src={RecordLaufey1} alt="Laufey Record 1" />
         </GridCellWithHover>
-
-        {/* Bottom row - 3 records */}
-        <GridCellWithHover gridColumn={1} gridRow={4}>
-          <GridRecord src={Laufey2Cover} alt="Laufey Cover 2" />
+        <GridCellWithHover gridColumn={1} gridRow={3}>
+          <GridRecord 
+            src={Laufey2Cover} 
+            alt="Laufey Cover 2" 
+            onClick={() => handleRecordClick(RecordLaufey2)}
+          />
           <RecordOverlay src={RecordLaufey2} alt="Laufey Record 2" />
         </GridCellWithHover>
-        <GridCellWithHover gridColumn={2} gridRow={4}>
-          <GridRecord src={Laufey3Cover} alt="Laufey Cover 3" />
+        <GridCellWithHover gridColumn={1} gridRow={4}>
+          <GridRecord 
+            src={Laufey3Cover} 
+            alt="Laufey Cover 3" 
+            onClick={() => handleRecordClick(RecordLaufey3)}
+          />
           <RecordOverlay src={RecordLaufey3} alt="Laufey Record 3" />
         </GridCellWithHover>
-        <GridCellWithHover gridColumn={3} gridRow={4}>
-          <GridRecord src={Laufey4Cover} alt="Laufey Cover 4" />
+        <GridCellWithHover gridColumn={2} gridRow={4}>
+          <GridRecord 
+            src={Laufey4Cover} 
+            alt="Laufey Cover 4" 
+            onClick={() => handleRecordClick(RecordLaufey4)}
+          />
           <RecordOverlay src={RecordLaufey4} alt="Laufey Record 4" />
         </GridCellWithHover>
-
-        {/* Right column - 1 record */}
-        <GridCellWithHover gridColumn={4} gridRow={4}>
-          <GridRecord src={WickedCover} alt="Wicked Cover" />
+        <GridCellWithHover gridColumn={3} gridRow={4}>
+          <GridRecord 
+            src={WickedCover} 
+            alt="Wicked Cover" 
+            onClick={() => handleRecordClick(RecordWicked)}
+          />
           <RecordOverlay src={RecordWicked} alt="Wicked Record" />
         </GridCellWithHover>
+        <GridCellWithHover gridColumn={4} gridRow={4}>
+          <GridRecord 
+            src={ChuckCover} 
+            alt="Chuck Berry Cover" 
+            onClick={() => handleRecordClick(RecordChuck)}
+          />
+          <RecordOverlay src={RecordChuck} alt="Chuck Berry Record" />
+        </GridCellWithHover>
       </RecordLibraryContainer>
-      <ButtonContainer>
-        <StartButton onClick={handleStart}>Start</StartButton>
-        <StopButton onClick={handleStop}>Stop</StopButton>
-      </ButtonContainer>
     </div>
   );
 };
