@@ -3,12 +3,13 @@ import React from "react";
 import { styled } from "styled-components";
 import { workExperienceData } from 'src/constants/workExperience';
 import { theme } from 'src/styles';
+import resume from 'src/assets/documents/Aayush_Grover_Resume.pdf';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  min-width: 20rem;
+  min-width: 21rem;
 `;
 
 const HeadingContainer = styled.div`
@@ -18,8 +19,8 @@ const HeadingContainer = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 1.55rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 `;
 
 const DownloadButton = styled.button`
@@ -43,40 +44,44 @@ const ExperienceContainer = styled.div`
 `;
 
 const ExperienceLogo = styled.img`
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 3.1rem;
+  height: 3.1rem;
 `;
 
 const ExperienceTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.65rem;
+  margin-left: 0.7rem;
 `;
 
 const ExperienceTitle = styled.p`
   font-weight: 700;
   line-height: 0.9;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 const ExperienceCompany = styled.p`
-  font-size: 0.65rem;
-  margin-top: 0.12rem;
-  line-height: 1rem;
+  font-size: 0.75rem;
+  margin-top: 0.175rem;
+  line-height: 1.2rem;
 `;
 
 const ExperienceDates = styled.p`
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   justify-content: flex-end;
   color: ${theme.colors.primary.gray};
 `;
 
 const WorkExperience: React.FC = () => {
+  const handleOpenResume = () => {
+    window.open(resume, '_blank');
+  };
+
   return (
     <Container>
       <HeadingContainer>
         <Heading>Work Experience</Heading>
-        <DownloadButton>Download CV</DownloadButton>
+        <DownloadButton onClick={handleOpenResume}>Download CV</DownloadButton>
       </HeadingContainer>
       {workExperienceData.map((workExperience) => {
         return (

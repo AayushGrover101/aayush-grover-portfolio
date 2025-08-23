@@ -12,7 +12,7 @@ const LayoutContainer = styled.div`
 
 const ContentWrapper = styled.div`
   display: flex;
-  max-width: 79rem;
+  max-width: 80rem;
   width: 100%;
   background-color: #ffffff;
   position: relative;
