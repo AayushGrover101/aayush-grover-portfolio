@@ -26,12 +26,13 @@ const Heading = styled.h2`
 const DownloadButton = styled.button`
   background-color: ${theme.colors.primary.lightGray};
   padding: 0.35rem 0.65rem; 
-  margin-left: 1rem;
+  margin-left: 0.75rem;
   border: 0px;
   border-radius: 0.4rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 0.85rem;
+  margin-bottom: 0.5rem;
 
   &:hover {
     background-color: ${theme.colors.primary.mediumGray};
@@ -81,7 +82,7 @@ const WorkExperience: React.FC = () => {
     <Container>
       <HeadingContainer>
         <Heading>Work Experience</Heading>
-        <DownloadButton onClick={handleOpenResume}>Download CV</DownloadButton>
+        <DownloadButton onClick={handleOpenResume}>View CV</DownloadButton>
       </HeadingContainer>
       {workExperienceData.map((workExperience) => {
         return (
