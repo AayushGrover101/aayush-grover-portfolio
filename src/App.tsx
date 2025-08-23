@@ -1,11 +1,19 @@
-import styled from "styled-components";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-function App() {
+import { Route as RouteName } from "./constants/route";
+import NotFoundPage from "./pages/not-found/404";
+import Home from "./pages/home";
+
+const App: React.FC = () => {
   return (
-    <div>
-      <p>Hello, world!</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={RouteName.MAIN} element={<Home />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
