@@ -1,8 +1,8 @@
-import { PageID } from "src/constants/page";
+import { Route } from "src/constants/route";
 
-export const SECTIONS = {
-  [PageID.HOME]: "Home",
-  [PageID.PROJECTS]: "Projects",
-  [PageID.WRITNG]: "Writing",
-  [PageID.ML_ARCHIVES]: "ML Archives",
+export const PAGES = {
+  [Route.HOME]: "Home",
+  [Route.PROJECTS]: "Projects",
+  [Route.WRITING]: "Writing",
+  [Route.ML_ARCHIVES]: "ML Archives",
 };
