@@ -18,7 +18,8 @@ import {
   Laufey4Cover,
   WickedCover
 } from "../../../../assets/img";
-import { useVinyl } from "../../../../contexts/VinylContext";
+import { useVinyl } from "../../../../contexts/useVinyl";
+import { VINYL_AUDIO_URLS } from "../../../../constants/vinyl";
 
 const RecordLibraryContainer = styled.div`
   position: relative;
@@ -115,10 +116,20 @@ const Subheading = styled.h1`
 `;
 
 const RecordLibrary: React.FC = () => {
-  const { isRotating, selectedRecord, setVinylState } = useVinyl();
+  const { isRotating, selectedRecord, setVinylState, playAudio, stopAudio } = useVinyl();
 
   const handleRecordClick = (recordSrc: string) => {
+    // Stop any currently playing audio
+    stopAudio();
+    
+    // Set the vinyl state
     setVinylState(true, recordSrc);
+    
+    // Play the corresponding audio
+    const audioUrl = VINYL_AUDIO_URLS[recordSrc];
+    if (audioUrl) {
+      playAudio(audioUrl);
+    }
   };
 
   const getCurrentRecordSrc = () => {

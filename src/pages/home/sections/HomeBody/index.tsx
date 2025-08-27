@@ -91,7 +91,7 @@ const HomeBody: React.FC = () => {
       </Subtitle>
 
       <Section>
-        <SectionTitle>What I'm up to:</SectionTitle>
+        <SectionTitle>What I've been up to lately:</SectionTitle>
         <List>
           <ListItem>
             I'm currently doing ML engineering at{" "}
@@ -101,11 +101,25 @@ const HomeBody: React.FC = () => {
             , working on Sidekick.
           </ListItem>
           <ListItem>
-            Previously, I worked on quantitative benchmarks & evaluations (agent frameworks, embedding models, etc.) at{" "}
-            <Link href="https://nokia.com" target="_blank" rel="noopener noreferrer">
-              Nokia.
+            Recently, I designed high-value agentic infrastructure for autonomous network agents at{" "}
+            <Link href="https://shopify.com" target="_blank" rel="noopener noreferrer">
+              Nokia 
             </Link>
+            , pending internal-approval for a system patent
           </ListItem>
+
+          <ListItem>
+            In parallel, I worked on quantitative benchmarks & evaluations (agent frameworks, embedding models, etc.) on Nokia's research teams.
+          </ListItem>
+
+          <ListItem>
+            I built a voice AI interviewer overnight, scaling {" "}
+            <Link href="https://www.meetcode.world/" target="_blank" rel="noopener noreferrer">
+              MeetCode 
+            </Link>
+            {" "}to 1.5k users without marketing in &lt;24 hours.
+          </ListItem>
+
           <ListItem>
             I'm also building at{" "}
             <Link href="https://hackthenorth.com" target="_blank" rel="noopener noreferrer">
@@ -124,9 +138,6 @@ const HomeBody: React.FC = () => {
           </ListItem>
           <ListItem>
             ML research. While building products gives me the "thrill" of a quick win, I find the pursuit of deeper knowledge most rewarding.
-          </ListItem>
-          <ListItem>
-            Connecting with strangers. I'm in a constant endeavor to find my people, so I live by "strangers today, friends tomorrow".
           </ListItem>
           <ListItem>
             Art is at the heart of everything I do. From design to theater to jazz – if I'm not creating, I'm getting lost in someone else's work.
@@ -160,7 +171,7 @@ const HomeBody: React.FC = () => {
       </BottomText>
 
       <LastUpdated>
-        Last updated: August 23rd, 2025.
+        Last updated: August 27rd, 2025.
       </LastUpdated>
     </HomeContainer>
   );

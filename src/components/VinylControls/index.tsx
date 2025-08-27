@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useVinyl } from '../../contexts/VinylContext';
+import { useVinyl } from '../../contexts/useVinyl';
 import { VINYL_NAMES } from '../../constants/vinyl';
 import { theme } from "src/styles";
 
@@ -82,7 +82,7 @@ const NowPlayingNotification = styled.div`
 `;
 
 const VinylControls: React.FC = () => {
-  const { isRotating, selectedRecord, stopVinyl } = useVinyl();
+  const { isRotating, selectedRecord, stopVinyl, stopAudio, isPlaying } = useVinyl();
   const [showNotification, setShowNotification] = useState(false);
   const [immediateHide, setImmediateHide] = useState(false);
 
@@ -105,6 +105,7 @@ const VinylControls: React.FC = () => {
   const handleStopVinyl = () => {
     setImmediateHide(true);
     setShowNotification(false);
+    stopAudio(); // Stop the audio first
     stopVinyl();
   };
 
@@ -128,6 +129,7 @@ const VinylControls: React.FC = () => {
       {/* Now Playing Notification */}
       <NowPlayingNotification className={`${showNotification ? 'visible' : ''} ${immediateHide ? 'immediate-hide' : ''}`}>
         Now playing: {getCurrentVinylName()}
+        {isPlaying && <div style={{ fontSize: '12px', marginTop: '4px', opacity: 0.8 }}>Audio playing</div>}
       </NowPlayingNotification>
     </>
   );
