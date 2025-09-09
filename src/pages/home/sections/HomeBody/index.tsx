@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "src/components/base/Link";
+import { LAST_UPDATED } from "src/constants/lastUpdated";
 
 const HomeContainer = styled.div`
   max-width: 37.5rem;
   line-height: 1.6;
+
+  @media (max-width: 1000px) {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
 `;
 
 const Name = styled.h1`
@@ -171,7 +177,7 @@ const HomeBody: React.FC = () => {
       </BottomText>
 
       <LastUpdated>
-        Last updated: August 27rd, 2025.
+        Last updated: {LAST_UPDATED}.
       </LastUpdated>
     </HomeContainer>
   );

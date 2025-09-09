@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  min-width: 21rem;
+  min-width: 18rem;
 `;
 
 const HeadingContainer = styled.div`
