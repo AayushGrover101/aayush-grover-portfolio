@@ -6,22 +6,22 @@ import { SOCIALS, SocialPlatforms } from "src/constants/social";
 import { theme } from "src/styles";
 
 const NavbarContainer = styled.nav`
-  min-width: 175px;
+  min-width: 11rem;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  padding-left: 3rem;
+  padding-left: 4rem;
   position: sticky;
-  top: 80px;
+  top: 5rem;
   height: fit-content;
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 5rem);
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   
   &::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
   }
   
   scrollbar-width: none;
